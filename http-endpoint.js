@@ -8,12 +8,6 @@ const express = require('express');
 
 const util = require('util');
 
-const request = require('request');
-
-const http = require('http');
-
-fetch()
-
 const app = express();
 
 app.use(express.text());

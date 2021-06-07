@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require('http');
 
 module.exports.GetInstanceMetadata = async (url) => {
   return new Promise((resolve, reject) => {
