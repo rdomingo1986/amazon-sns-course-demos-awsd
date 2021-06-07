@@ -41,7 +41,9 @@ app.post('/', (req, res) => {
       console.log(util.inspect(err, false, null, true));
     }
   } else {
-    console.log(util.inspect(req.body, false, null, true));
+    console.log('NUEVA NOTIFICACION');
+    console.log(util.inspect(body.MessageId, false, null, true));
+    console.log(util.inspect(body.Message, false, null, true));
     res.send('Done!!!');
   }
 })
