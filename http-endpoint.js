@@ -43,7 +43,7 @@ app.post('/', (req, res) => {
   } else {
     console.log('NUEVA NOTIFICACION');
     console.log(util.inspect(body.MessageId, false, null, true));
-    console.log(util.inspect(body.Message, false, null, true));
+    console.log(util.inspect(JSON.parse(body.Message), false, null, true));
     res.send('Done!!!');
   }
 })
