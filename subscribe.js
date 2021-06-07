@@ -7,12 +7,7 @@ const run = async function () {
     var response = await sns.subscribe({
       TopicArn: 'arn:aws:sns:us-east-1:864613434505:awsd-officialcourse-demo-amazon-sns',
       Protocol: 'email',
-      Endpoint: 'domingo@allincloudservices.com',
-      Attributes: {
-        FilterPolicy: JSON.stringify({
-          'http_endpoint': ['yes']
-        })
-      }
+      Endpoint: 'domingo@allincloudservices.com'
     });
     console.log(util.inspect(response, false, null, true));
   } catch (err) {
