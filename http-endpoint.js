@@ -15,7 +15,9 @@ app.get('/', (req, res) => {
   const endpoint = 'http://ec2-3-86-230-146.compute-1.amazonaws.com:3000';
 
   try {
-    res.send(await Subscribe(endpoint));
+    (async function () {
+      res.send(await Subscribe(endpoint));
+    })();
   } catch (err) {
     console.log(util.inspect(err, false, null, true));
   }
@@ -26,8 +28,10 @@ app.post('/', (req, res) => {
 
   if(body.Type == 'SubscriptionConfirmation') {
     try {
-      const response = await ConfirmSubscription(body.Token);
-      res.send('Done!!!');
+      (async function () {
+        const response = await ConfirmSubscription(body.Token);
+        res.send('Done!!!');
+      })();
     } catch (err) {
       console.log(util.inspect(err, false, null, true));
     }
