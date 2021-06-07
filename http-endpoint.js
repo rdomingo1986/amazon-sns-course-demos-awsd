@@ -1,9 +1,18 @@
-const { Subscribe } = require('./modules/subscribe-module');
-const { ConfirmSubscription } = require('./modules/confirm-subscription-module');
+const { Subscribe } = require('./modules/subscribe-module.js');
+
+const { ConfirmSubscription } = require('./modules/confirm-subscription-module.js');
+
+const { GetInstanceMetadata } = require('./modules/get-instance-metadata-module.js');
 
 const express = require('express');
 
 const util = require('util');
+
+const request = require('request');
+
+const http = require('http');
+
+fetch()
 
 const app = express();
 
@@ -12,12 +21,10 @@ app.use(express.text());
 const port = 3000;
 
 app.get('/', (req, res) => {
-  const endpoint = 'http://ec2-3-86-230-146.compute-1.amazonaws.com:3000';
-
   try {
     (async function () {
       console.log('Creating subscription');
-      const response = await Subscribe(endpoint);
+      const response = await Subscribe('http://' + await GetInstanceMetadata() + ':3000');
       console.log('Subscription created');
       res.send(response);
     })();
