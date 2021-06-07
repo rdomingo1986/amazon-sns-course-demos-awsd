@@ -16,7 +16,10 @@ app.get('/', (req, res) => {
 
   try {
     (async function () {
-      res.send(await Subscribe(endpoint));
+      console.log('Creating subscription');
+      const response = await Subscribe(endpoint);
+      console.log('Subscription created');
+      res.send(response);
     })();
   } catch (err) {
     console.log(util.inspect(err, false, null, true));
@@ -29,7 +32,9 @@ app.post('/', (req, res) => {
   if(body.Type == 'SubscriptionConfirmation') {
     try {
       (async function () {
+        console.log('Confirming subscription');
         const response = await ConfirmSubscription(body.Token);
+        console.log('Subscription confirmed');
         res.send('Done!!!');
       })();
     } catch (err) {
