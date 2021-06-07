@@ -12,5 +12,3 @@ module.exports.ConfirmSubscription = async function (token) {
     console.log(util.inspect(err, false, null, true));
   }
 };
-
-run();
