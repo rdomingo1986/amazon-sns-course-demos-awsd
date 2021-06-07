@@ -10,10 +10,7 @@ module.exports.Subscribe = async function (endpoint) {
       Endpoint: endpoint,
       Attributes: {
         FilterPolicy: JSON.stringify({
-          'http_endpoint': {
-            DataType: 'String',
-            StringValue: 'yes'
-          }
+          'http_endpoint': ['yes']
         })
       }
     }); 
